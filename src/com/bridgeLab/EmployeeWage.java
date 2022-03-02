@@ -9,7 +9,7 @@ public class EmployeeWage {
         int empWageperHr=20;
 
         int randVal = (int) (Math.floor(Math.random()*10)%3);
-          if(randVal==1) {
+         /* if(randVal==1) {
                     int empHr=4;
                     int empWage=empWageperHr*empHr;
                     System.out.println(empWage);
@@ -23,7 +23,23 @@ public class EmployeeWage {
 
         }
         else
-            System.out.println("Employee is Absent");
+            System.out.println("Employee is Absent");*/
+        switch(randVal)
+        {
+            case IS_PART_TIME :
+            empHr=4;
+            int empWage=empWageperHr*empHr;
+                System.out.println(empWage);
+            break;
+            case IS_FULL_TIME:
+                empHr=8;
+                int empWage=empWageperHr*empHr;
+                System.out.println(empWage);
+                break;
+            default:empHr=0;
+
+
+        }
 
     }
 }
