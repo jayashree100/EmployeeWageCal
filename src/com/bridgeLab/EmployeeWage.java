@@ -1,41 +1,53 @@
-package com.bridgeLab;
+package com.bridgelabz;
 
 public class EmployeeWage {
-    static final int IS_PART_TIME=1;
-    static final int IS_FULL_TIME=2;
+
+    static final int WAGE_PER_HOUR_IS=20;
+    static final int IS_FULL_TIME=1;
+    static final int IS_PART_TIME=2;
+    static final int MAX_WORKING_DAYS=20;
+    static final int MAX_WORKING_HRS=100;
 
     public static void main(String[] args) {
-        System.out.println("Welcome To main");
-        int empWageperHr=20;
+        int total_Employee_Wage=0;
+        int working_Hrs=0;
+        int working_Days=1;
 
-        int randVal = (int) (Math.floor(Math.random()*10)%3);
-          /*if(randVal==1) {
-                    int empHr=4;
-                    int empWage=empWageperHr*empHr;
-                    System.out.println(empWage);
+        while (working_Hrs<100 && working_Days<=20) {
 
-
-                  }
-        else if(randVal==2) {
-            int empHr = 8;
-            int empWage = empWageperHr * empHr;
-            System.out.println(empWage);
-
+            int value = (int)Math.floor(Math.random()*10) % 3;
+            if(working_Hrs>=96 && value==IS_FULL_TIME) {
+                System.out.println("Max hours reached!!! You can only do Part Time Work");
+            }
+            else{
+                switch (value) {
+                    case IS_FULL_TIME: {
+                        int empHrs = 8;
+                        int empWage = WAGE_PER_HOUR_IS * empHrs;
+//			System.out.println("Employee is Present Full time and will receive " +WAGE_PER_HOUR_IS*empHrs+ " and working hours is "+working_Hrs+ " Working day is " +working_Days);
+                        total_Employee_Wage=total_Employee_Wage+empWage;
+                        working_Hrs+=empHrs;
+                        System.out.println("Employee is Present Full time and will receive " +WAGE_PER_HOUR_IS*empHrs+ " and working hours is "+working_Hrs+ " Working day is " +working_Days);
+                        working_Days++;
+                        break;
+                    }
+                    case IS_PART_TIME: {
+                        int empHrs = 4;
+                        int empWage = WAGE_PER_HOUR_IS * empHrs;
+//			System.out.println("Employee is Present Part time and will receive " +WAGE_PER_HOUR_IS*empHrs+ " and working hours is "+working_Hrs+ " Working day is "+ working_Days);
+                        total_Employee_Wage=total_Employee_Wage+empWage;
+                        working_Hrs+=empHrs;
+                        System.out.println("Employee is Present Part time and will receive " +WAGE_PER_HOUR_IS*empHrs+ " and working hours is "+working_Hrs+ " Working day is "+ working_Days);
+                        working_Days++;
+                        //System.out.println("Employee is Present Part time and will receive " +WAGE_PER_HOUR_IS*empHrs+ " and working hours is "+working_Hrs+ " Working day is "+ working_Days);
+                        break;
+                    }
+                    default:
+                        System.out.println("Employee is Absent ....and working day is " +working_Days);
+                        working_Days++;
+                }
+            }
         }
-        else
-            System.out.println("Employee is Absent");*/
-        int empHr=0;
-        int empWage=0;
-        switch (randVal)
-        {
-            case IS_PART_TIME :
-                empHr=4;
-                break;
-            case IS_FULL_TIME:
-                empHr=8;
-            default:empHr=0;
-
-        }
-
+        System.out.println("Total Wage of the Employee in a Month is : " +total_Employee_Wage);
     }
 }
